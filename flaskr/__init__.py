@@ -1,4 +1,3 @@
-# filepath: /c:/Users/hp/Documents/flask tutorial/flaskr/__init__.py
 import os
 from flask import Flask
 
@@ -36,5 +35,9 @@ def create_app(test_config=None):
 
     from . import blog
     app.register_blueprint(blog.bp)
+
+    @app.route('/')
+    def index():
+        return 'Index Page'
 
     return app
