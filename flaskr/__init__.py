@@ -1,3 +1,4 @@
+# filepath: /c:/Users/hp/Documents/flask tutorial/flaskr/__init__.py
 import os
 from flask import Flask
 
@@ -30,13 +31,10 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
-    return app
-# The factory function create_app() is defined and returns the Flask instance.
-def create_app():
-    app = ...
-    # existing code omitted
-
     from . import auth
     app.register_blueprint(auth.bp)
+
+    from . import blog
+    app.register_blueprint(blog.bp)
 
     return app
